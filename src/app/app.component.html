@@ -1,3 +1,4 @@
+
 <div class="container">
   <div cdkDropList [cdkDropListData]="headers" cdkDropListOrientation="horizontal" class="header-list"
     (cdkDropListDropped)="onDrop($event)">
@@ -13,3 +14,7 @@
     <div class="example-box" *ngFor="let footer of footers" cdkDrag>{{footer.name}}</div>
   </div>
 </div>
+
+
+<button mat-button (click)="openDialog()">Open dialog</button>
+

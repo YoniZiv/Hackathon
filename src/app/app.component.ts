@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
+
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+
+import {MatDialog} from '@angular/material';
+import {ComponentPref, DialogComponent} from './components/dialog/dialog.component';
+
 
 @Component({
   selector: 'app-root',
@@ -8,6 +13,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 })
 export class AppComponent {
   title = 'Qwix';
+
 
   headers = [
     {
@@ -64,5 +70,21 @@ export class AppComponent {
   }
 
 
+
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+
+    const style: ComponentPref = {
+     width: '400px',
+      height: '200px',
+      'background-image': ''
+    }
+    this.dialog.open(DialogComponent, {
+      data: {text: 'yoni', design: style},
+
+    });
+  }
 
 }

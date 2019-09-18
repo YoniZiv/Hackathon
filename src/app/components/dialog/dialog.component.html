@@ -1,0 +1,31 @@
+<!--<h1 mat-dialog-title>Favorite Animal</h1>-->
+<!--<div mat-dialog-content>-->
+  <!--My favorite animal is:-->
+  <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<span *ngIf="data.animal === 'panda'">&#10003;</span> Panda&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+      <!--&lt;!&ndash;<span *ngIf="data.animal === 'lion'">&#10003;</span> Lion&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+  <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div [ngStyle]="data.design">-->
+ <!--{{data.text}}-->
+<!--</div>-->
+
+<!--<div>-->
+  <!--<input type="text" [ngStyle]="data.design" />-->
+<!--</div>-->
+
+<!--<input matInput placeholder="Favorite food" value="Sushi">-->
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Favorite food" value="" [ngStyle]="data.design">
+  </mat-form-field>
+</form>
