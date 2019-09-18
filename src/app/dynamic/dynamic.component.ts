@@ -18,7 +18,9 @@ export class DynamicComponent implements OnInit {
 
   ngOnInit() {
 
+
     this.componentType = this.componentPref.componentType;
+
   }
 
 

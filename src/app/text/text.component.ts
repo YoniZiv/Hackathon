@@ -14,6 +14,7 @@ export class TextComponent implements OnInit {
   ngOnInit() {
 
     let test = this.componentPref.componentType;
+
   }
 
 }

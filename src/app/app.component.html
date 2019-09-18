@@ -1,20 +1,41 @@
-
-<div class="container">
-  <div cdkDropList [cdkDropListData]="headers" cdkDropListOrientation="horizontal" class="header-list"
-    (cdkDropListDropped)="onDrop($event)">
-    <div class="example-box" *ngFor="let header of headers" cdkDrag>
-      <app-dynamic [componentPref]="header"></app-dynamic>
+<div class="main-container">
+  <div class="side-container">
+    <app-sections></app-sections>
+  </div>
+  <div class="container">
+    <div cdkDropList #headersList="cdkDropList" [cdkDropListData]="headers" cdkDropListOrientation="horizontal"
+      class="header-list" (cdkDropListDropped)="onDrop($event)" [cdkDropListConnectedTo]="[trashList]">
+      <div class="example-box" *ngFor="let header of headers" cdkDrag>
+        <app-dynamic [componentPref]="header"></app-dynamic>
+      </div>
+    </div>
+    <div cdkDropList #bodysList="cdkDropList" [cdkDropListData]="bodys" class="body-list"
+      (cdkDropListDropped)="onDrop($event)" [cdkDropListConnectedTo]="[trashList]">
+      <div class="example-box" *ngFor="let body of bodys" cdkDrag>
+        <app-dynamic [componentPref]="body"></app-dynamic>
+      </div>
+    </div>
+    <div cdkDropList #footersList="cdkDropList" [cdkDropListData]="footers" cdkDropListOrientation="horizontal"
+      [cdkDropListConnectedTo]="[trashList]" class="footer-list" (cdkDropListDropped)="onDrop($event)">
+      <div class="example-box" *ngFor="let footer of footers" cdkDrag>
+        <app-dynamic [componentPref]="footer"></app-dynamic>
+      </div>
     </div>
   </div>
-  <div cdkDropList [cdkDropListData]="bodys" class="body-list" (cdkDropListDropped)="onDrop($event)">
-    <div class="example-box" *ngFor="let body of bodys" cdkDrag>{{body.name}}</div>
-  </div>
-  <div cdkDropList [cdkDropListData]="footers" cdkDropListOrientation="horizontal" class="footer-list"
-    (cdkDropListDropped)="onDrop($event)">
-    <div class="example-box" *ngFor="let footer of footers" cdkDrag>{{footer.name}}</div>
+  <div class="side-container">
+    <div class="componentsMainDiv">
+      <div cdkDropList #componentsList="cdkDropList" [cdkDropListData]="components"
+        [cdkDropListConnectedTo]="[headersList,bodysList,footersList,trashList]" (cdkDropListDropped)="onDrop($event)">
+        <div class="example-box" *ngFor="let component of components" cdkDrag>
+          <app-dynamic [componentPref]="component"></app-dynamic>
+        </div>
+      </div>
+    </div>
+    <div class="trashcanMainDiv" cdkDropList #trashList="cdkDropList" [cdkDropListData]="trashes"
+      [cdkDropListConnectedTo]="[headersList,bodysList,footersList]" (cdkDropListDropped)="onDrop($event)">
+      <app-trashcan class="trashcan"></app-trashcan>
+    </div>
   </div>
 </div>
 
-
 <button mat-button (click)="openDialog()">Open dialog</button>
-
