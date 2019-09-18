@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
-import {MatDialog} from '@angular/material';
-import {ComponentPref, DialogComponent} from './components/dialog/dialog.component';
+import { MatDialog } from '@angular/material';
+import { ComponentPref, DialogComponent } from './components/dialog/dialog.component';
 
 
 @Component({
@@ -59,9 +59,22 @@ export class AppComponent {
     }
   ];
 
+  components = [
+    {
+      componentType: 'text',
+      text: 'test',
+      color: 'green',
+      style: {
+        'font-size': '30px',
+        'color': 'red',
+      }
+    }
+  ]
 
+  trashes = []
 
   onDrop(event: CdkDragDrop<string[]>) {
+    debugger;
     if (event.previousContainer == event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -69,20 +82,17 @@ export class AppComponent {
     }
   }
 
-
-
-
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) { }
 
   openDialog() {
 
     const style: ComponentPref = {
-     width: '400px',
+      width: '400px',
       height: '200px',
       'background-image': ''
     }
     this.dialog.open(DialogComponent, {
-      data: {text: 'yoni', design: style},
+      data: { text: 'yoni', design: style },
 
     });
   }
