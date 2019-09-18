@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,33 +11,32 @@ import { TextComponent } from './text/text.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatDialogModule, MatInputModule} from '@angular/material';
 import { DialogComponent } from './components/dialog/dialog.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-
     DynamicComponent,
-    TextComponent
-
-    DialogComponent
-
+    TextComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
 
-    DragDropModule
+    DragDropModule,
 
     MatDialogModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent]
+  entryComponents: [DialogComponent],
 })
 export class AppModule { }

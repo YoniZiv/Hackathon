@@ -12,7 +12,7 @@ export class TextComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    debugger;
+
     let test = this.componentPref.componentType;
   }
 

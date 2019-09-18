@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Renderer2} from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
@@ -62,6 +62,9 @@ export class AppComponent {
 
 
   onDrop(event: CdkDragDrop<string[]>) {
+    this.openDialog(event)
+    // this.renderer.setStyle(event.item.element.nativeElement, 'background','blue')
+    console.log(event)
     if (event.previousContainer == event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -72,19 +75,22 @@ export class AppComponent {
 
 
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
-  openDialog() {
-
+  openDialog(e) {
+  console.log(e)
     const style: ComponentPref = {
-     width: '400px',
-      height: '200px',
-      'background-image': ''
+      width: e.item.offsetWidth ,
+      height: e.item.offsetHeight ,
+      'background-image': '',
+      'background-color': e.item.element.nativeElement.style.backgroundColor
     }
     this.dialog.open(DialogComponent, {
-      data: {text: 'yoni', design: style},
+      data: {text: 'yoni', design: style, elem: e},
 
     });
   }
+
+
 
 }
