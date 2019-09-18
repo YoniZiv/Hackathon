@@ -1,3 +1,20 @@
-Zalupa
-<app-map></app-map>
+
+<div class="container">
+  <div cdkDropList [cdkDropListData]="headers" cdkDropListOrientation="horizontal" class="header-list"
+    (cdkDropListDropped)="onDrop($event)">
+    <div class="example-box" *ngFor="let header of headers" cdkDrag>
+      <app-dynamic [componentPref]="header"></app-dynamic>
+    </div>
+  </div>
+  <div cdkDropList [cdkDropListData]="bodys" class="body-list" (cdkDropListDropped)="onDrop($event)">
+    <div class="example-box" *ngFor="let body of bodys" cdkDrag>{{body.name}}</div>
+  </div>
+  <div cdkDropList [cdkDropListData]="footers" cdkDropListOrientation="horizontal" class="footer-list"
+    (cdkDropListDropped)="onDrop($event)">
+    <div class="example-box" *ngFor="let footer of footers" cdkDrag>{{footer.name}}</div>
+  </div>
+</div>
+
+
 <button mat-button (click)="openDialog()">Open dialog</button>
+
