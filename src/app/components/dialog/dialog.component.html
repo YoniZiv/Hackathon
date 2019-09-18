@@ -25,7 +25,16 @@
 <!--<input matInput placeholder="Favorite food" value="Sushi">-->
 
 <form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="" [ngStyle]="data.design">
+  <mat-form-field class="example-full-width" MatFormFieldControl="backgroundColorSelector">
+    <input matInput placeholder="Background" name="backgroundColorSelector" [(ngModel)]="backgroundColorSelector" >
   </mat-form-field>
+  <mat-form-field class="example-full-width" MatFormFieldControl="widthSelector">
+    <input matInput placeholder="Width" name="widthSelector" [(ngModel)]="widthSelector" >
+  </mat-form-field>
+  <mat-form-field class="example-full-width" MatFormFieldControl="heightSelector">
+    <input matInput placeholder="Height" name="heightSelector" [(ngModel)]="heightSelector" >
+  </mat-form-field>
+  <!--<mat-form-field class="example-full-width">-->
+    <button mat-button type="button" name="Done" (click)="saveChanges()">Done</button>
+  <!--</mat-form-field>-->
 </form>
