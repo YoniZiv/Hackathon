@@ -17,7 +17,7 @@
       <div cdkDropList #bodysList="cdkDropList" [cdkDropListData]="bodys" class="body-list"
         [style.background-color]="bodyColor" (cdkDropListDropped)="onDrop($event)"
         [cdkDropListConnectedTo]="[trashList]">
-         <app-stepper></app-stepper>
+        <app-stepper></app-stepper>
         <div class="example-box" *ngFor="let body of bodys" cdkDrag>
           <app-dynamic [componentPref]="body"></app-dynamic>
         </div>
@@ -47,4 +47,3 @@
     </div>
   </div>
 </div>
-
