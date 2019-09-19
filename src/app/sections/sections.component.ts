@@ -43,7 +43,7 @@ export class SectionsComponent implements OnInit {
   }
 
   public onHeaderChanged(event: string, data: any): void {
-    debugger;
+    // debugger;
     var color = data.color;
 
     this.HeaderBackgroundChanged.emit(data.color);

@@ -16,7 +16,7 @@ export class AppComponent {
 
   isEditMode = true;
 
-  headerColor = 'red'
+  headerColor = ''
   bodyColor = 'white'
   footerColor = 'white'
 
@@ -46,10 +46,50 @@ export class AppComponent {
   footers: any[] = [
     {
       componentType: 'text',
-      text: 'test',
+      text: 'F',
       style: {
         'font-size': '30px',
-        'color': 'red',
+        'color': 'white',
+        'background-color': '#3b5998 ',
+        'border-radius': '50%',
+        'width': '35px',
+        'text-align': 'center',
+        'margin-top': '10px',
+        'margin-left': '10px',
+        'font-family': 'sans-serif',
+        'margin-right': '10px'
+      }
+    },
+    {
+      componentType: 'text',
+      text: 'T',
+      style: {
+        'font-size': '30px',
+        'color': 'white',
+        'background-color': '#1da1f3 ',
+        'border-radius': '50%',
+        'width': '35px',
+        'text-align': 'center',
+        'margin-top': '10px',
+        'margin-left': '10px',
+        'font-family': 'sans-serif',
+        'margin-right': '10px'
+      }
+    },
+    {
+      componentType: 'text',
+      text: 'I',
+      style: {
+        'font-size': '30px',
+        'color': 'white',
+        'background-color': '#fe2f73 ',
+        'border-radius': '50%',
+        'width': '35px',
+        'text-align': 'center',
+        'margin-top': '10px',
+        'margin-left': '10px',
+        'font-family': 'sans-serif',
+        'margin-right': '10px'
       }
     }
   ];

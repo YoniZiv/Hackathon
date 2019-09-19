@@ -6,7 +6,8 @@
   </div>
   <div class="container">
     <div cdkDropList #headersList="cdkDropList" [cdkDropListData]="headers" cdkDropListOrientation="horizontal"
-      [style.background-color]="headerColor" class="header-list" (cdkDropListDropped)="onDrop($event)"
+       style="font-family: sans-serif; padding-top: 10px; padding-left: 20px;" class="header-list" (cdkDropListDropped)="onDrop($event)"
+         [style.background-color]="headerColor"
       [cdkDropListConnectedTo]="[trashList]">
       <div class="example-box" *ngFor="let header of headers" cdkDrag>
         <app-dynamic [componentPref]="header"></app-dynamic>
@@ -23,10 +24,10 @@
       </div>
 
     </div>
-    <div cdkDropList #footersList="cdkDropList" [cdkDropListData]="footers" cdkDropListOrientation="horizontal"
-      [cdkDropListConnectedTo]="[trashList]" class="footer-list" (cdkDropListDropped)="onDrop($event)"
-      [style.background-color]="footerColor">
-      <div class="example-box" *ngFor="let footer of footers" cdkDrag>
+    <div cdkDropList #footersList="cdkDropList" [cdkDropListData]="footers" cdkDropListOrientation="horizontal" style="flex-flow: row-reverse;"
+      [cdkDropListConnectedTo]="[trashList]" class="footer-list" [style.background-color]="footerColor"
+      (cdkDropListDropped)="onDrop($event)">
+      <div class="example-box" *ngFor="let footer of footers" cdkDrag >
         <app-dynamic [componentPref]="footer"></app-dynamic>
       </div>
     </div>
