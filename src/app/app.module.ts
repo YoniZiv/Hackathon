@@ -10,11 +10,14 @@ import { DynamicComponent } from './dynamic/dynamic.component';
 import { TextComponent } from './text/text.component';
 import { MatButtonModule, MatDialogModule, MatInputModule } from '@angular/material';
 import { DialogComponent } from './components/dialog/dialog.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SectionsComponent } from './sections/sections.component';
 import { TrashcanComponent } from './trashcan/trashcan.component';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogDraggableTitleDirective } from './dialog-draggable-title.directive';
+import { ModalPositionCache } from './modal-position.cache';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -27,7 +30,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DialogComponent,
 
     SectionsComponent,
-    TrashcanComponent
+    TrashcanComponent,
+    DialogDraggableTitleDirective
 
 
   ],
@@ -35,9 +39,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatExpansionModule,
 
     DragDropModule,
-    MatCheckboxModule
+    MatCheckboxModule,
 
     FormsModule,
 
@@ -49,7 +54,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
   ],
-  providers: [],
+  providers: [ModalPositionCache],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponent],
 })

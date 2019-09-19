@@ -1,6 +1,7 @@
 <div class="main-container">
-  <div class="side-container">
+  <div class="side-container" *ngIf="isEditMode">
     <app-sections></app-sections>
+    <img src="assets/qwix.png" class="logo">
   </div>
   <div class="container">
     <div cdkDropList #headersList="cdkDropList" [cdkDropListData]="headers" cdkDropListOrientation="horizontal"
@@ -22,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="side-container">
+  <div class="side-container" *ngIf="isEditMode">
     <div class="componentsMainDiv">
       <div cdkDropList #componentsList="cdkDropList" [cdkDropListData]="components"
         [cdkDropListConnectedTo]="[headersList,bodysList,footersList,trashList]" (cdkDropListDropped)="onDrop($event)">
@@ -37,5 +38,3 @@
     </div>
   </div>
 </div>
-
-<button mat-button (click)="openDialog()">Open dialog</button>

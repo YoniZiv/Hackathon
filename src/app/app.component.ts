@@ -1,4 +1,4 @@
-import {Component, Renderer2} from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
@@ -14,6 +14,7 @@ import { ComponentPref, DialogComponent } from './components/dialog/dialog.compo
 export class AppComponent {
   title = 'Qwix';
 
+  isEditMode = true;
 
   headers = [
     {
@@ -86,20 +87,20 @@ export class AppComponent {
     }
   }
 
-  constructor(public dialog: MatDialog, private renderer: Renderer2) {}
+  constructor(public dialog: MatDialog, private renderer: Renderer2) { }
 
 
   openDialog(e) {
-  console.log(e)
+    console.log(e)
     const style: ComponentPref = {
 
-      width: e.item.offsetWidth ,
-      height: e.item.offsetHeight ,
+      width: e.item.offsetWidth,
+      height: e.item.offsetHeight,
       'background-image': '',
       'background-color': e.item.element.nativeElement.style.backgroundColor
     }
     this.dialog.open(DialogComponent, {
-      data: {text: 'yoni', design: style, elem: e},
+      data: { text: 'yoni', design: style, elem: e },
 
 
     });

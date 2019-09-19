@@ -1,40 +1,41 @@
 <!--<h1 mat-dialog-title>Favorite Animal</h1>-->
 <!--<div mat-dialog-content>-->
-  <!--My favorite animal is:-->
-  <!--&lt;!&ndash;<ul>&ndash;&gt;-->
-    <!--&lt;!&ndash;<li>&ndash;&gt;-->
-      <!--&lt;!&ndash;<span *ngIf="data.animal === 'panda'">&#10003;</span> Panda&ndash;&gt;-->
-    <!--&lt;!&ndash;</li>&ndash;&gt;-->
-    <!--&lt;!&ndash;<li>&ndash;&gt;-->
-      <!--&lt;!&ndash;<span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn&ndash;&gt;-->
-    <!--&lt;!&ndash;</li>&ndash;&gt;-->
-    <!--&lt;!&ndash;<li>&ndash;&gt;-->
-      <!--&lt;!&ndash;<span *ngIf="data.animal === 'lion'">&#10003;</span> Lion&ndash;&gt;-->
-    <!--&lt;!&ndash;</li>&ndash;&gt;-->
-  <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--My favorite animal is:-->
+<!--&lt;!&ndash;<ul>&ndash;&gt;-->
+<!--&lt;!&ndash;<li>&ndash;&gt;-->
+<!--&lt;!&ndash;<span *ngIf="data.animal === 'panda'">&#10003;</span> Panda&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li>&ndash;&gt;-->
+<!--&lt;!&ndash;<span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li>&ndash;&gt;-->
+<!--&lt;!&ndash;<span *ngIf="data.animal === 'lion'">&#10003;</span> Lion&ndash;&gt;-->
+<!--&lt;!&ndash;</li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
 <!--</div>-->
 
 <!--<div [ngStyle]="data.design">-->
- <!--{{data.text}}-->
+<!--{{data.text}}-->
 <!--</div>-->
 
 <!--<div>-->
-  <!--<input type="text" [ngStyle]="data.design" />-->
+<!--<input type="text" [ngStyle]="data.design" />-->
 <!--</div>-->
 
 <!--<input matInput placeholder="Favorite food" value="Sushi">-->
 
 <form class="example-form">
+  <h1 mat-dialog-title mat-dialog-draggable-title>Hi</h1>
   <mat-form-field class="example-full-width" MatFormFieldControl="backgroundColorSelector">
-    <input matInput placeholder="Background" name="backgroundColorSelector" [(ngModel)]="backgroundColorSelector" >
+    <input matInput placeholder="Background" name="backgroundColorSelector" [(ngModel)]="backgroundColorSelector">
   </mat-form-field>
   <mat-form-field class="example-full-width" MatFormFieldControl="widthSelector">
-    <input matInput placeholder="Width" name="widthSelector" [(ngModel)]="widthSelector" >
+    <input matInput placeholder="Width" name="widthSelector" [(ngModel)]="widthSelector">
   </mat-form-field>
   <mat-form-field class="example-full-width" MatFormFieldControl="heightSelector">
-    <input matInput placeholder="Height" name="heightSelector" [(ngModel)]="heightSelector" >
+    <input matInput placeholder="Height" name="heightSelector" [(ngModel)]="heightSelector">
   </mat-form-field>
   <!--<mat-form-field class="example-full-width">-->
-    <button mat-button type="button" name="Done" (click)="saveChanges()">Done</button>
+  <button mat-button type="button" name="Done" (click)="saveChanges()">Done</button>
   <!--</mat-form-field>-->
 </form>
