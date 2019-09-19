@@ -1,5 +1,6 @@
-import {Component, Inject, Input, OnInit, Renderer2} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import { Component, Inject, Input, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 
 
 export interface DialogData {
@@ -52,7 +53,7 @@ export class DialogComponent implements OnInit {
   public marginRightSelector = "";
   public backgroundImageSelector = "";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private renderer: Renderer2) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private renderer: Renderer2) { }
 
   ngOnInit() {
     var nativeElem = this.data.elem.item.element.nativeElement
@@ -67,7 +68,6 @@ export class DialogComponent implements OnInit {
     this.textSelector = nativeElem.innerText
     this.backgroundImageSelector = "https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg"
   }
-
 
   saveChanges(){
     const nativeElem = this.data.elem.item.element.nativeElement;
@@ -88,4 +88,5 @@ export class DialogComponent implements OnInit {
     this.renderer.setProperty(nativeElem,'innerText' ,this.textSelector);
 
   }
+
 }

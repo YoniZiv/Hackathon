@@ -5,15 +5,18 @@
         <mat-panel-title>
           Header
         </mat-panel-title>
+
       </mat-expansion-panel-header>
 
       <mat-form-field>
-        <input matInput placeholder="First name">
+        <input matInput placeholder="Background color" value="Color" [style.background]="color1"
+          [(colorPicker)]="color1" (colorPickerOpen)="onHeaderChanged('colorPickerOpen', $event)"
+          (colorPickerClose)="onHeaderChanged('colorPickerClose', $event)"
+          (cpInputChange)="onHeaderChanged('cpInputChange', $event)"
+          (cpSliderDragStart)="onHeaderChanged('cpSliderDragStart', $event)"
+          (cpSliderDragEnd)="onHeaderChanged('cpSliderDragEnd', $event)" />
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
     </mat-expansion-panel>
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
@@ -21,7 +24,29 @@
           Body
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
+      <mat-form-field>
+        <input matInput placeholder="Background color" value="Color" [style.background]="color2"
+          [(colorPicker)]="color2" (colorPickerOpen)="onBodyChanged('colorPickerOpen', $event)"
+          (colorPickerClose)="onBodyChanged('colorPickerClose', $event)"
+          (cpInputChange)="onBodyChanged('cpInputChange', $event)"
+          (cpSliderDragStart)="onBodyChanged('cpSliderDragStart', $event)"
+          (cpSliderDragEnd)="onBodyChanged('cpSliderDragEnd', $event)" />
+      </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Footer
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput placeholder="Background color" value="Color" [style.background]="color3"
+          [(colorPicker)]="color3" (colorPickerOpen)="onFooterChanged('colorPickerOpen', $event)"
+          (colorPickerClose)="onFooterChanged('colorPickerClose', $event)"
+          (cpInputChange)="onFooterChanged('cpInputChange', $event)"
+          (cpSliderDragStart)="onFooterChanged('cpSliderDragStart', $event)"
+          (cpSliderDragEnd)="onFooterChanged('cpSliderDragEnd', $event)" />
+      </mat-form-field>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

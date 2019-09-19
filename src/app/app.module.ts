@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogDraggableTitleDirective } from './dialog-draggable-title.directive';
 import { ModalPositionCache } from './modal-position.cache';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ColorPickerModule } from 'ngx-color-picker';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { SlotsComponent } from './components/slots/slots.component';
 import { SetAppConfirmComponent } from './components/set-app-confirm/set-app-confirm.component';
@@ -46,7 +47,7 @@ import { SetAppConfirmComponent } from './components/set-app-confirm/set-app-con
     AppRoutingModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-
+    ColorPickerModule,
     DragDropModule,
     MatCheckboxModule,
 
