@@ -12,9 +12,11 @@
     </div>
     <div cdkDropList #bodysList="cdkDropList" [cdkDropListData]="bodys" class="body-list"
       (cdkDropListDropped)="onDrop($event)" [cdkDropListConnectedTo]="[trashList]">
+      <app-stepper></app-stepper>
       <div class="example-box" *ngFor="let body of bodys" cdkDrag>
         <app-dynamic [componentPref]="body"></app-dynamic>
       </div>
+
     </div>
     <div cdkDropList #footersList="cdkDropList" [cdkDropListData]="footers" cdkDropListOrientation="horizontal"
       [cdkDropListConnectedTo]="[trashList]" class="footer-list" (cdkDropListDropped)="onDrop($event)">
@@ -38,3 +40,4 @@
     </div>
   </div>
 </div>
+
