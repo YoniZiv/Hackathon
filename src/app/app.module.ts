@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogDraggableTitleDirective } from './dialog-draggable-title.directive';
 import { ModalPositionCache } from './modal-position.cache';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 
@@ -40,7 +41,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-
+    ColorPickerModule,
     DragDropModule,
     MatCheckboxModule,
 

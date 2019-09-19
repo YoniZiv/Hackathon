@@ -1,5 +1,6 @@
-import {Component, Inject, Input, OnInit, Renderer2} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import { Component, Inject, Input, OnInit, Renderer2, ViewContainerRef } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
+import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 
 
 export interface DialogData {
@@ -46,7 +47,7 @@ export class DialogComponent implements OnInit {
   public widthSelector = "";
   public heightSelector = "";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private renderer: Renderer2) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private renderer: Renderer2) { }
 
   ngOnInit() {
     this.backgroundColorSelector = this.data.elem.item.element.nativeElement.style.backgroundColor;
@@ -55,9 +56,10 @@ export class DialogComponent implements OnInit {
   }
 
 
-  saveChanges(){
+  saveChanges() {
     this.renderer.setStyle(this.data.elem.item.element.nativeElement, 'background-color', this.backgroundColorSelector);
     this.renderer.setStyle(this.data.elem.item.element.nativeElement, 'height', this.heightSelector);
     this.renderer.setStyle(this.data.elem.item.element.nativeElement, 'width', this.widthSelector);
   }
+
 }

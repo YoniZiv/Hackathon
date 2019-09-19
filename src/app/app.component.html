@@ -1,23 +1,29 @@
 <div class="main-container">
   <div class="side-container" *ngIf="isEditMode">
-    <app-sections></app-sections>
-    <img src="assets/qwix.png" class="logo">
+    <app-sections (HeaderBackgroundChanged)="onHeaderChanged($event)" (BodyBackgroundChanged)="onBodyChanged($event)"
+      (FooterBackgroundChanged)="onFooterChanged($event)"></app-sections>
+    <img src="assets/qwix.png" class="logo" (click)="isEditMode = false;">
   </div>
   <div class="container">
     <div cdkDropList #headersList="cdkDropList" [cdkDropListData]="headers" cdkDropListOrientation="horizontal"
-      class="header-list" (cdkDropListDropped)="onDrop($event)" [cdkDropListConnectedTo]="[trashList]">
+      [style.background-color]="headerColor" class="header-list" (cdkDropListDropped)="onDrop($event)"
+      [cdkDropListConnectedTo]="[trashList]">
       <div class="example-box" *ngFor="let header of headers" cdkDrag>
         <app-dynamic [componentPref]="header"></app-dynamic>
       </div>
     </div>
-    <div cdkDropList #bodysList="cdkDropList" [cdkDropListData]="bodys" class="body-list"
-      (cdkDropListDropped)="onDrop($event)" [cdkDropListConnectedTo]="[trashList]">
-      <div class="example-box" *ngFor="let body of bodys" cdkDrag>
-        <app-dynamic [componentPref]="body"></app-dynamic>
+    <div>
+      <div cdkDropList #bodysList="cdkDropList" [cdkDropListData]="bodys" class="body-list"
+        [style.background-color]="bodyColor" (cdkDropListDropped)="onDrop($event)"
+        [cdkDropListConnectedTo]="[trashList]">
+        <div class="example-box" *ngFor="let body of bodys" cdkDrag>
+          <app-dynamic [componentPref]="body"></app-dynamic>
+        </div>
       </div>
     </div>
     <div cdkDropList #footersList="cdkDropList" [cdkDropListData]="footers" cdkDropListOrientation="horizontal"
-      [cdkDropListConnectedTo]="[trashList]" class="footer-list" (cdkDropListDropped)="onDrop($event)">
+      [cdkDropListConnectedTo]="[components,trashList]" class="footer-list" [style.background-color]="footerColor"
+      (cdkDropListDropped)="onDrop($event)">
       <div class="example-box" *ngFor="let footer of footers" cdkDrag>
         <app-dynamic [componentPref]="footer"></app-dynamic>
       </div>
@@ -33,7 +39,7 @@
       </div>
     </div>
     <div class="trashcanMainDiv" cdkDropList #trashList="cdkDropList" [cdkDropListData]="trashes"
-      [cdkDropListConnectedTo]="[headersList,bodysList,footersList]" (cdkDropListDropped)="onDrop($event)">
+      [cdkDropListConnectedTo]="[]" (cdkDropListDropped)="onDrop($event)">
       <app-trashcan class="trashcan"></app-trashcan>
     </div>
   </div>

@@ -16,58 +16,52 @@ export class AppComponent {
 
   isEditMode = true;
 
+  headerColor = 'red'
+  bodyColor = 'white'
+  footerColor = 'white'
+
   headers = [
     {
       componentType: 'text',
-      text: 'test',
-      color: 'green',
+      text: 'Welcome to HairStudio',
       style: {
         'font-size': '30px',
-        'color': 'red',
+        'color': 'black',
+        'background-color': 'rgba(155,122,122,0)'
       }
-    },
-    {
-      componentType: 'text',
-      text: 'test',
-      style: {
-        'font-size': '30px',
-        'color': 'red',
-        'padding': '10px'
-      }
-
     }
   ];
 
   bodys = [
+    {
+      componentType: 'text',
+      text: 'test',
+      style: {
+        'font-size': '30px',
+        'color': 'red',
+      }
+    }
   ];
 
   footers = [
     {
-      name: 'Angular',
-      category: 'Web Development'
-    },
-    {
-      name: 'Flexbox',
-      category: 'Web Development'
-    },
-    {
-      name: 'iOS',
-      category: 'App Development'
-    },
-    {
-      name: 'Java',
-      category: 'Software development'
-    }
-  ];
-
-  components = [
-    {
       componentType: 'text',
       text: 'test',
-      color: 'green',
       style: {
         'font-size': '30px',
         'color': 'red',
+      }
+    }
+  ];
+
+  components: any[] = [
+    {
+      componentType: 'text',
+      text: 'Editable Component',
+      style: {
+        'font-size': '30px',
+        'color': 'red',
+        'background-color': 'white'
       }
     }
   ]
@@ -76,13 +70,16 @@ export class AppComponent {
 
   onDrop(event: CdkDragDrop<string[]>) {
 
-    this.openDialog(event)
     // this.renderer.setStyle(event.item.element.nativeElement, 'background','blue')
     console.log(event)
 
     if (event.previousContainer == event.container) {
+      this.openDialog(event)
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      if (event.previousContainer.id == "cdk-drop-list-3") {
+        this.components.push(event.previousContainer.data[0]);
+      }
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex)
     }
   }
@@ -101,9 +98,25 @@ export class AppComponent {
     }
     this.dialog.open(DialogComponent, {
       data: { text: 'yoni', design: style, elem: e },
-
-
     });
+  }
+
+  onHeaderChanged($event) {
+    if ($event) {
+      this.headerColor = $event;
+    }
+  }
+
+  onBodyChanged($event) {
+    if ($event) {
+      this.bodyColor = $event;
+    }
+  }
+
+  onFooterChanged($event) {
+    if ($event) {
+      this.footerColor = $event;
+    }
   }
 
 
