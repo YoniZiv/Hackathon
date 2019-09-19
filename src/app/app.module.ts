@@ -8,7 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { TextComponent } from './text/text.component';
-import { MatButtonModule, MatDialogModule, MatInputModule } from '@angular/material';
+import {MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatStepperModule} from '@angular/material';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SectionsComponent } from './sections/sections.component';
@@ -19,6 +19,9 @@ import { DialogDraggableTitleDirective } from './dialog-draggable-title.directiv
 import { ModalPositionCache } from './modal-position.cache';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { SlotsComponent } from './components/slots/slots.component';
+import { SetAppConfirmComponent } from './components/set-app-confirm/set-app-confirm.component';
 
 
 
@@ -32,7 +35,10 @@ import { ColorPickerModule } from 'ngx-color-picker';
 
     SectionsComponent,
     TrashcanComponent,
-    DialogDraggableTitleDirective
+    DialogDraggableTitleDirective,
+    StepperComponent,
+    SlotsComponent,
+    SetAppConfirmComponent
 
 
   ],
@@ -52,11 +58,13 @@ import { ColorPickerModule } from 'ngx-color-picker';
     MatDialogModule,
     MatButtonModule,
     MatInputModule,
-
+    MatStepperModule,
+    MatCardModule,
+    ReactiveFormsModule
 
   ],
   providers: [ModalPositionCache],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, SetAppConfirmComponent],
 })
 export class AppModule { }

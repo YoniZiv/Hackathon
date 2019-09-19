@@ -46,20 +46,47 @@ export class DialogComponent implements OnInit {
   public backgroundColorSelector = "";
   public widthSelector = "";
   public heightSelector = "";
+  public textSelector = "";
+  public fontSizeSelector = "";
+  public colorSelector = "";
+  public marginLeftSelector = "";
+  public marginRightSelector = "";
+  public backgroundImageSelector = "";
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.backgroundColorSelector = this.data.elem.item.element.nativeElement.style.backgroundColor;
-    this.widthSelector = this.data.elem.item.element.nativeElement.offsetWidth + 'px';
-    this.heightSelector = this.data.elem.item.element.nativeElement.offsetHeight + 'px';
+    var nativeElem = this.data.elem.item.element.nativeElement
+
+    this.backgroundColorSelector = nativeElem.style.backgroundColor;
+    this.widthSelector = nativeElem.offsetWidth + 'px';
+    this.heightSelector = nativeElem.offsetHeight + 'px';
+    this.fontSizeSelector = nativeElem.style.fontSize;
+    this.colorSelector = nativeElem.style.color;
+    this.marginLeftSelector = nativeElem.marginLeft;
+    this.marginRightSelector = nativeElem.marginRight;
+    this.textSelector = nativeElem.innerText
+    this.backgroundImageSelector = "https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg"
   }
 
+  saveChanges(){
+    const nativeElem = this.data.elem.item.element.nativeElement;
 
-  saveChanges() {
-    this.renderer.setStyle(this.data.elem.item.element.nativeElement, 'background-color', this.backgroundColorSelector);
-    this.renderer.setStyle(this.data.elem.item.element.nativeElement, 'height', this.heightSelector);
-    this.renderer.setStyle(this.data.elem.item.element.nativeElement, 'width', this.widthSelector);
+    this.renderer.setStyle(nativeElem, 'background-color', this.backgroundColorSelector);
+    this.renderer.setStyle(nativeElem, 'height', this.heightSelector);
+    this.renderer.setStyle(nativeElem, 'width', this.widthSelector);
+    this.renderer.setStyle(nativeElem, 'font-size', this.fontSizeSelector);
+    this.renderer.setStyle(nativeElem, 'color', this.colorSelector);
+    this.renderer.setStyle(nativeElem, 'margin-left', this.marginLeftSelector);
+    this.renderer.setStyle(nativeElem, 'margin-right', this.marginRightSelector);
+    this.renderer.setStyle(nativeElem, 'background-image', `url(${this.backgroundImageSelector})`);
+    this.renderer.setStyle(nativeElem, 'background-size', "100%");
+    this.renderer.setStyle(nativeElem, 'background-position', "center");
+    this.renderer.setStyle(nativeElem, 'background-repeat', "no-repeat");
+
+
+    this.renderer.setProperty(nativeElem,'innerText' ,this.textSelector);
+
   }
 
 }
