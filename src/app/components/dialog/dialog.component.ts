@@ -58,7 +58,6 @@ export class DialogComponent implements OnInit {
   ngOnInit() {
     var nativeElem = this.data.elem.item.element.nativeElement
 
-    this.backgroundColorSelector = nativeElem.style.backgroundColor;
     this.widthSelector = nativeElem.offsetWidth + 'px';
     this.heightSelector = nativeElem.offsetHeight + 'px';
     this.fontSizeSelector = nativeElem.style.fontSize;
@@ -69,7 +68,14 @@ export class DialogComponent implements OnInit {
     this.backgroundImageSelector = "https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg"
   }
 
-  saveChanges(){
+  public onBackGroundChanged(event: string, data: any): void {
+    debugger;
+    var color = data.color;
+
+    this.backgroundColorSelector = data.color;
+  }
+
+  saveChanges() {
     const nativeElem = this.data.elem.item.element.nativeElement;
 
     this.renderer.setStyle(nativeElem, 'background-color', this.backgroundColorSelector);
@@ -85,7 +91,7 @@ export class DialogComponent implements OnInit {
     this.renderer.setStyle(nativeElem, 'background-repeat', "no-repeat");
 
 
-    this.renderer.setProperty(nativeElem,'innerText' ,this.textSelector);
+    this.renderer.setProperty(nativeElem, 'innerText', this.textSelector);
 
   }
 

@@ -33,17 +33,17 @@
       <path d="M0 0h24v24H0z" fill="none"></path>
     </svg>
   </div>
+  <mat-form-field class="example-full-width" MatFormFieldControl="widthSelector">
+    <input matInput placeholder="Width" name="widthSelector" [(ngModel)]="widthSelector">
+  </mat-form-field>
   <mat-form-field class="example-full-width" MatFormFieldControl="backgroundColorSelector">
     <input matInput placeholder="Background color" value="Color" [style.background]="backgroundColorSelector"
       [(colorPicker)]="backgroundColorSelector" />
   </mat-form-field>
-  <mat-form-field class="example-full-width" MatFormFieldControl="widthSelector">
-    <input matInput placeholder="Width" name="widthSelector" [(ngModel)]="widthSelector">
-  </mat-form-field>
   <mat-form-field class="example-full-width" MatFormFieldControl="heightSelector">
     <input matInput placeholder="Height" name="heightSelector" [(ngModel)]="heightSelector">
   </mat-form-field>
-  <br/>
+  <br />
   <mat-form-field class="example-full-width" MatFormFieldControl="textSelector">
     <input matInput placeholder="Text" name="textSelector" [(ngModel)]="textSelector">
   </mat-form-field>
@@ -51,18 +51,20 @@
     <input matInput placeholder="FontSize" name="fontSizeSelector" [(ngModel)]="fontSizeSelector">
   </mat-form-field>
   <mat-form-field class="example-full-width" MatFormFieldControl="colorSelector">
-    <input matInput placeholder="Color" name="colorSelector" [(ngModel)]="colorSelector">
+    <input matInput placeholder="Background color" value="Color" [style.background]="colorSelector"
+      [(colorPicker)]="colorSelector" />
   </mat-form-field>
-  <br/>
+  <br />
   <mat-form-field class="example-full-width" MatFormFieldControl="marginLeftSelector">
     <input matInput placeholder="MarginLeft" name="marginLeftSelector" [(ngModel)]="marginLeftSelector">
   </mat-form-field>
   <mat-form-field class="example-full-width" MatFormFieldControl="marginRightSelector">
     <input matInput placeholder="MarginRight" name="marginRightSelector" [(ngModel)]="marginRightSelector">
   </mat-form-field>
-  <br/>
+  <br />
   <mat-form-field class="example-full-width" MatFormFieldControl="backgroundImageSelector">
-    <input matInput placeholder="BackgroundImage URL" name="backgroundImageSelector" [(ngModel)]="backgroundImageSelector">
+    <input matInput placeholder="BackgroundImage URL" name="backgroundImageSelector"
+      [(ngModel)]="backgroundImageSelector">
   </mat-form-field>
   <!--<mat-form-field class="example-full-width">-->
   <button mat-button type="button" name="Done" (click)="saveChanges()">Done</button>

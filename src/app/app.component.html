@@ -16,7 +16,7 @@
       <div cdkDropList #bodysList="cdkDropList" [cdkDropListData]="bodys" class="body-list"
         [style.background-color]="bodyColor" (cdkDropListDropped)="onDrop($event)"
         [cdkDropListConnectedTo]="[trashList]">
-         <app-stepper></app-stepper>
+        <app-stepper></app-stepper>
         <div class="example-box" *ngFor="let body of bodys" cdkDrag>
           <app-dynamic [componentPref]="body"></app-dynamic>
         </div>
@@ -24,8 +24,8 @@
 
     </div>
     <div cdkDropList #footersList="cdkDropList" [cdkDropListData]="footers" cdkDropListOrientation="horizontal"
-      [cdkDropListConnectedTo]="[components,trashList]" class="footer-list" [style.background-color]="footerColor"
-      (cdkDropListDropped)="onDrop($event)">
+      [cdkDropListConnectedTo]="[trashList]" class="footer-list" (cdkDropListDropped)="onDrop($event)"
+      [style.background-color]="footerColor">
       <div class="example-box" *ngFor="let footer of footers" cdkDrag>
         <app-dynamic [componentPref]="footer"></app-dynamic>
       </div>
@@ -46,4 +46,3 @@
     </div>
   </div>
 </div>
-

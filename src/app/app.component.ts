@@ -20,7 +20,7 @@ export class AppComponent {
   bodyColor = 'white'
   footerColor = 'white'
 
-  headers = [
+  headers: any[] = [
     {
       componentType: 'text',
       text: 'Welcome to HairStudio',
@@ -32,7 +32,7 @@ export class AppComponent {
     }
   ];
 
-  bodys = [
+  bodys: any[] = [
     {
       componentType: 'text',
       text: 'test',
@@ -43,7 +43,7 @@ export class AppComponent {
     }
   ];
 
-  footers = [
+  footers: any[] = [
     {
       componentType: 'text',
       text: 'test',
@@ -69,12 +69,13 @@ export class AppComponent {
   trashes = []
 
   onDrop(event: CdkDragDrop<string[]>) {
-
     // this.renderer.setStyle(event.item.element.nativeElement, 'background','blue')
     console.log(event)
 
     if (event.previousContainer == event.container) {
-      this.openDialog(event)
+      if (event.previousContainer.id != "cdk-drop-list-3") {
+        this.openDialog(event)
+      }
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       if (event.previousContainer.id == "cdk-drop-list-3") {
